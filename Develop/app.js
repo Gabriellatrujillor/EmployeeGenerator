@@ -16,6 +16,34 @@ function addEmployee(){
     //if role == "manager"{
        // manager(name, email,role )
    // }
+   
+inquirer.prompt( [
+    {
+      type: "input",
+      name: "name",
+      message: "name?",
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "email?",
+    },
+    {
+      type: "list",
+      name: "role",
+      choices:["manager", "engineer", "intern"],
+      message: "role?",
+    }
+
+  
+  
+  ]).then(function(answer){
+      console.log(answer)
+      if(answer.role=="manager"){
+          manager(answer.name, answer.email, answer.role)
+
+      }
+  })
 }
 
 
@@ -23,12 +51,29 @@ function addEmployee(){
     //ask officenum 
 
     function manager(name, email, role){
+        console.log("inside manager fx"+ name+email+role);
         //inquirer ask for officenum
-        //create he manager obj
+       
+        inquirer.prompt( [
+            {
+              type: "input",
+              name: "officeNum",
+              message: "Office Number?",
+            }
+          
+          ]).then(function(managerObj){
+              console.log(managerObj)
+              const employee= new Manager(name, id, email, managerObj.officeNum);
+            //push emo=ployee into array
+             //create he manager obj
         //ask if more employees
             //if yes call addEmployee()
             //if no call render fx passing in employeeArray
                 //write the team.html page with fswritefile
+
+
+          })
+        
     }
 //engineer name role email 
     //ASK  github
@@ -36,5 +81,5 @@ function addEmployee(){
     //ask school
 
 
-
+addEmployee();
 
