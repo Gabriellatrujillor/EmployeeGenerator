@@ -37,7 +37,7 @@ inquirer.prompt( [
 
   
   
-  ]).then(function(answer){
+  ]).then((answer) => {
       console.log(answer)
       if(answer.role=="manager"){
           manager(answer.name, answer.email, answer.role)
@@ -50,7 +50,7 @@ inquirer.prompt( [
 //Manager//name email role
     //ask officenum 
 
-    function manager(name, email, role){
+    function manager(name, id, email, role){
         console.log("inside manager fx"+ name+email+role);
         //inquirer ask for officenum
        
@@ -61,20 +61,53 @@ inquirer.prompt( [
               message: "Office Number?",
             }
           
-          ]).then(function(managerObj){
+          ]).then((managerObj) =>{
               console.log(managerObj)
               const employee= new Manager(name, id, email, managerObj.officeNum);
-            //push emo=ployee into array
-             //create he manager obj
-        //ask if more employees
+            //push emoployee into array
+            //create he manager obj
+            //ask if more employees
             //if yes call addEmployee()
             //if no call render fx passing in employeeArray
-                //write the team.html page with fswritefile
+            //write the team.html page with fswritefile
 
 
-          })
+          })};
         
-    }
+    
+
+    inquirer.prompt( [
+      {
+        type: "input",
+        name: "name",
+        message: "name?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "email?",
+      },
+      {
+        type: "input",
+        name: "gitHub",
+        message: "gitHub?",
+      },
+      {
+        type: "list",
+        name: "role",
+        choices:["manager", "engineer", "intern"],
+        message: "role?",
+      }
+  
+    
+    
+    ]).then((answer){
+        console.log(answer)
+        if(answer.role=="engineer"){
+            engineer(answer.name, answer.email, answer.role, answer.gitHub)
+  
+        }
+    })
 //engineer name role email 
     //ASK  github
 //intern name role, email 
