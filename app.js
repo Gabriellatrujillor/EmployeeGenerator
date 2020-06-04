@@ -12,107 +12,124 @@ const render = require("./lib/htmlRenderer");
 const employeeArray = [];
 
 function addEmployee(){
-    // inquirer ask email name role
-    //if role == "manager"{
-       // manager(name, email,role )
-   // }
+   
    
 inquirer.prompt( [
     {
       type: "input",
       name: "name",
-      message: "name?",
+      message: "What is your name?",
     },
     {
       type: "input",
       name: "email",
-      message: "email?",
+      message: "What is your email?",
     },
     {
       type: "list",
       name: "role",
       choices:["manager", "engineer", "intern"],
-      message: "role?",
+      message: "What is your title?",
     }
 
   
   
-  ]).then((answer) => {
+  ]).then(function(answer){
       console.log(answer)
       if(answer.role=="manager"){
-          manager(answer.name, answer.email, answer.role)
+         return manager(answer.name, answer.email, answer.role)
 
       }
   })
+.then(function(answer){
+      console.log(answer)
+      if(answer.role=="engineer"){
+         return engineer(answer.name, answer.email, answer.role)
+
+      }
+  })
+  
+  
 }
 
-
-//Manager//name email role
-    //ask officenum 
-
-    function manager(name, id, email, role){
+  // MANAGER FUNCTION
+    function manager(name, email, role, id){
         console.log("inside manager fx"+ name+email+role);
-        //inquirer ask for officenum
        
         inquirer.prompt( [
             {
               type: "input",
               name: "officeNum",
-              message: "Office Number?",
+              message: "What is your office number?",
             }
           
-          ]).then((managerObj) =>{
+          ]).then(function(managerObj){
               console.log(managerObj)
               const employee= new Manager(name, id, email, managerObj.officeNum);
-            //push emoployee into array
-            //create he manager obj
-            //ask if more employees
+            //push emo=ployee into array
+             //create he manager obj
+        //ask if more employees
             //if yes call addEmployee()
             //if no call render fx passing in employeeArray
-            //write the team.html page with fswritefile
+                //write the team.html page with fswritefile
 
 
-          })};
+          })
+          // const newEmployees = employeeArray.push(manager)
+
         
-    
+    }
 
-    inquirer.prompt( [
-      {
-        type: "input",
-        name: "name",
-        message: "name?",
-      },
-      {
-        type: "input",
-        name: "email",
-        message: "email?",
-      },
-      {
-        type: "input",
-        name: "gitHub",
-        message: "gitHub?",
-      },
-      {
-        type: "list",
-        name: "role",
-        choices:["manager", "engineer", "intern"],
-        message: "role?",
-      }
-  
-    
-    
-    ]).then((answer){
-        console.log(answer)
-        if(answer.role=="engineer"){
-            engineer(answer.name, answer.email, answer.role, answer.gitHub)
-  
-        }
-    })
-//engineer name role email 
-    //ASK  github
-//intern name role, email 
-    //ask school
 
+
+    // ENGINEER FUNCTION
+    function engineer(name, email, role, id){
+      console.log("inside engineer fx"+ name+email+role);
+      //inquirer ask for officenum
+     
+      inquirer.prompt( [
+          {
+            type: "input",
+            name: "gitHub",
+            message: "What is your gitHub?",
+          }
+        
+        ]).then(function(engineerObj){
+            console.log(engineerObj)
+            const employeeEngineer= new Engineer(name, id, email, engineerObj.gitHub);
+      
+        })
+      
+  }
+
+
+    // INTERN FUNCTION
+    function intern(name, email, role, id){
+      console.log("inside manager fx"+ name+email+role);
+     
+      inquirer.prompt( [
+        {
+          type: "input",
+          name: "name",
+          message: "What is your name?",
+        },
+        {
+          type: "input",
+          name: "email",
+          message: "What is your email?",
+        },
+          {
+            type: "input",
+            name: "school",
+            message: "What school did you attend?",
+          }
+        
+        ]).then(function(internObj){
+            console.log(internObj)
+            const employeeIntern= new Intern(name, id, email, internObj.school);
+          
+        })
+      
+  }
 
 addEmployee();
-
