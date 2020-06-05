@@ -9,9 +9,9 @@ const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const inquirer = require("inquirer");
-const path = require("path";
+const path = require("path");
 const fs = require("fs");
-
+const util = require("util");
 const writeFileAsync = util.promisify(fs.writeFile);
 
 
@@ -28,6 +28,33 @@ function addEmployee() {
         type: "input",
         name: "name",
         message: "Employee name?",
+        validate: function(useLetter){
+          //A-z or a-z
+          var letters= /^[A-Za-z]+$/;
+          if(useLetter.match(letters)){
+            return true
+          }else{
+            console.log("\n try again");
+            return false;
+          }
+
+        }
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "Employee ID?",
+        validate: function(useLetter){
+          //A-z or a-z
+          var letters= /^[1-100000]+$/;
+          if(useLetter.match(letters)){
+            return true
+          }else{
+            console.log("\n try again. Must be between 1- 100001");
+            return false;
+          }
+
+        }
       },
       {
         type: "input",
@@ -44,13 +71,13 @@ function addEmployee() {
     .then((answer) => {
       console.log(answer);
       if (answer.role == "Manager") {
-        manager(answer.name, answer.email, answer.role);
+        manager(answer.name, answer.id, answer.email, answer.role);
       }
       if (answer.role == "Engineer") {
-        engineer(answer.name, answer.email, answer.role);
+        engineer(answer.name, answer.id, answer.email, answer.role);
       }
       if (answer.role == "Intern") {
-        intern(answer.name, answer.email, answer.role);
+        intern(answer.name, answer.id, answer.email, answer.role);
       }
     });
 }
@@ -80,6 +107,7 @@ function manager(name, id, email, role) {
             type: "confirm",
             name: "moreEmployees",
             message: "Do you want to add more employees?",
+            default: true
           },
         ])
         .then((startAgainObj) => {
@@ -87,17 +115,17 @@ function manager(name, id, email, role) {
           if (startAgainObj.moreEmployees == true) {
             addEmployee();
           } else {
-            console.log(render(employeeArray));
+            
+            //generate the template
+            const html = render(employeeArray);
+            fs.writeFile(outputPath, html, function(err) {
 
-
-            //return out and fs write file to output/team.html - NOT WORKING
-            fs.writeFile("team.html", function (err) {
-              return writeFileAsync("team.html", data);
               if (err) {
-                console.log(err);
-              } else {
-                console.log("The file was created!");
+                return console.log(err);
               }
+            
+              console.log("Success!");
+            
             });
           }
         });
@@ -126,6 +154,7 @@ function engineer(name, id, email, role) {
             type: "confirm",
             name: "moreEmployees",
             message: "Do you want to add more employees?",
+            default: true
           },
         ])
         .then((startAgainObj) => {
@@ -134,7 +163,16 @@ function engineer(name, id, email, role) {
             addEmployee();
           } else {
             //generate the template
-            console.log(render(employeeArray));
+            const html = render(employeeArray);
+            fs.writeFile(outputPath, html, function(err) {
+
+              if (err) {
+                return console.log(err);
+              }
+            
+              console.log("Success!");
+            
+            });
             //return out and fs write file to output/team.html
           }
         });
@@ -163,6 +201,7 @@ function intern(name, id, email, role) {
             type: "confirm",
             name: "moreEmployees",
             message: "Do you want to add more employees?",
+            default: true
           },
         ])
         .then((startAgainObj) => {
@@ -172,8 +211,16 @@ function intern(name, id, email, role) {
           } else {
             //generate the template
             const html = render(employeeArray);
-            console.log(html);
-                 writeToFile("Readme.md", html);            //return out and fs write file to output/team.html
+            fs.writeFile(outputPath, html, function(err) {
+
+              if (err) {
+                return console.log(err);
+              }
+            
+              console.log("Success!");
+            
+            });
+          
           }
         });
     });
