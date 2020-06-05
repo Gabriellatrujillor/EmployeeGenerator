@@ -46,11 +46,25 @@ function addEmployee() {
         message: "Employee ID?",
         validate: function(useLetter){
           //A-z or a-z
-          var letters= /^[1-100000]+$/;
-          if(useLetter.match(letters)){
-            return true
+          var letters= /^[0-9]+$/;
+          //validate type (number)
+          console.log(useLetter.length)
+          if(useLetter.match(letters))
+          {
+            //validate range
+           
+          
+            if(( useLetter.length<6) )
+            {
+              console.log(("\nhas to be 5 digits"))
+              return false }
+            else{
+              return true
+            }
+            
+     
           }else{
-            return ("\n Try again. Must be between 0 - 100001");
+            return ("\n Try again. Must be a number between 1-9");
            
           }
 
@@ -62,12 +76,15 @@ function addEmployee() {
         message: "Employee email?",
         validate: function(useLetter){
           //A-z or a-z
-          var letters= /^[A-Za-z]+$/;
-          if(useLetter.match(letters)){
+         
+          const emailRegexp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+.[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]*$/;
+
+          if(emailRegexp.test(useLetter)){
+            
             return true
           }else{
-            console.log("\n Must be valid email address.");
-            return false;
+            return ("\n Must be valid email address.");
+           
           }
 
         }
@@ -104,6 +121,17 @@ function manager(name, id, email, role) {
         type: "input",
         name: "officeNum",
         message: "Employee office number?",
+        validate: function(useLetter){
+          //A-z or a-z
+          var letters= /^[0-9]+$/;
+          if(useLetter.match(letters)){
+            return true
+          }else{
+            console.log("\n Must be a number");
+            return false;
+          }
+
+        }
       },
     ])
     .then((managerObj) => {
@@ -198,6 +226,17 @@ function intern(name, id, email, role) {
         type: "input",
         name: "school",
         message: "School employee attended?",
+        validate: function(useLetter){
+          //A-z or a-z
+          var letters= /^[A-Za-z]+$/;
+          if(useLetter.match(letters)){
+            return true
+          }else{
+            console.log("\n Must be upper or lowercase letters.");
+            return false;
+          }
+
+        }
       },
     ])
     .then((internObj) => {
@@ -225,6 +264,7 @@ function intern(name, id, email, role) {
             fs.writeFile(outputPath, html, function(err) {
 
               if (err) {
+                
                 return console.log(err);
               }
             
