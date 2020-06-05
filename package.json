@@ -23,6 +23,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "inquirer": "^6.5.2",
+    "path": "^0.12.7",
     "test": "^0.6.0"
   },
   "devDependencies": {
