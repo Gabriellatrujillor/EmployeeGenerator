@@ -1,8 +1,3 @@
-// Do we need writetofile function?
-// return out and fs write file to output/team.html - 89
-// ROLE IS UNDEFINED - 58
-// DO WE NEED THIS? - 15
-
 
 // DEPENDANCIES & VARIABLES
 const Manager = require("./lib/Manager.js");
