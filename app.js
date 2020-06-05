@@ -34,7 +34,7 @@ function addEmployee() {
           if(useLetter.match(letters)){
             return true
           }else{
-            console.log("\n try again");
+            console.log("\n Must be upper or lowercase letters.");
             return false;
           }
 
@@ -50,8 +50,8 @@ function addEmployee() {
           if(useLetter.match(letters)){
             return true
           }else{
-            console.log("\n try again. Must be between 1- 100001");
-            return false;
+            return ("\n Try again. Must be between 0 - 100001");
+           
           }
 
         }
@@ -60,6 +60,17 @@ function addEmployee() {
         type: "input",
         name: "email",
         message: "Employee email?",
+        validate: function(useLetter){
+          //A-z or a-z
+          var letters= /^[A-Za-z]+$/;
+          if(useLetter.match(letters)){
+            return true
+          }else{
+            console.log("\n Must be valid email address.");
+            return false;
+          }
+
+        }
       },
       {
         type: "list",
