@@ -1,0 +1,13 @@
+body {
+    background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/fs/61414a33919178.56bcc5caf35da.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: right -170px;
+    /* margin-top: 500px; */
+
+}
+
+.jumbotron {
+    background-color: gold;
+    opacity: .6px;
+}
