@@ -7,7 +7,34 @@ body {
 
 }
 
-.jumbotron {
-    background-color: gold;
-    opacity: .6px;
+
+
+/* HEADER */
+
+h1, .header {
+    font-size: 100px;
+    text-align: center;
+    color: pink;
+    margin-top: 150px;
+}
+
+
+
+
+/* CARD */
+
+
+
+.card-header {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQl2YftRy2P_pH2dyDdDW5JngRYD4igyZQrj2tI7xdbPC617ABL&usqp=CAU");}
+
+.card-body{
+    background-color: #1A1E21;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 10s;
+    
+}
+
+.list-group-item {
+    background-color: #928275;
 }
