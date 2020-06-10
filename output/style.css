@@ -7,15 +7,30 @@ body {
 
 }
 
+.row {
+    opacity: .87;
+}
+
 
 
 /* HEADER */
 
 h1, .header {
-    font-size: 100px;
-    text-align: center;
-    color: pink;
-    margin-top: 150px;
+    height: 250px;
+    margin-left: 1000px
+    
+    
+}
+
+h1, .headerlarge {
+margin-right: 722px;
+margin-left: 722px;
+}
+
+h1, #logo {
+background-image: url("/BG/Galadriel.png");
+background-color: rgba(7, 15, 121, 0.199);
+
 }
 
 
@@ -30,11 +45,63 @@ h1, .header {
 
 .card-body{
     background-color: #1A1E21;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 10s;
+    /* box-shadow: 0 4px 8px 0 rgba(48, 41, 41, 0.2); */
+  
     
 }
 
 .list-group-item {
-    background-color: #928275;
+    background-color: #867668fd;
+    font-weight: bolder;
+    font-size: 26.2px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: black;
+
 }
+
+h3.card-title {
+    font-family: 'Josefin Sans', sans-serif !important;
+    font-weight: bolder;
+    font-size: 50px;
+    text-align: center;
+}
+
+h2.card-title {
+    font-family: 'Marck Script', cursive;
+    font-size: 60px;
+    text-align: left;
+    color: rgb(136, 0, 0);
+}
+
+a {
+    color: rgb(6, 219, 226);
+}
+
+a:hover {
+    color: #ECCA5E;
+    transition-duration: 0.65s;
+    transform: scale(1.2);
+}
+
+a:active {
+    background-color: #669C99;
+    box-shadow: 0 5px rgb(1, 44, 78);
+    transform: translateY(10px);
+  }
+
+
+
+
+  /* COLUMNS */
+ 
+
+
+
+  /* MEDIA QUERIES */
+
+  @media only screen and (max-width: 600px) {
+    .col {
+      display: block;
+      width: 100%;
+    }
+  }
