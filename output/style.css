@@ -1,3 +1,6 @@
+/* OBJECTIVES - TO SPACE OUT CARDS */
+
+
 body {
     background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/fs/61414a33919178.56bcc5caf35da.jpg");
     background-repeat: no-repeat;
@@ -41,9 +44,9 @@ background-color:rgba(42, 43, 38, 0.726);
 
 
 .card-header {
-    background-image: url("https://images.unsplash.com/photo-1441861187324-6970a2587e34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRYFeG5xScCTfsVm7lpctWZAg2JyxOfA7H_46y6Szo8Q5juSxOL&usqp=CAU");
     background-position: center;
-    background-size: 420px;
+    background-size: 400px;
     }
 
 .card-body{
