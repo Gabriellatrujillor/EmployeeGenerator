@@ -16,7 +16,7 @@ body {
 /* HEADER */
 
 h1, .header {
-    height: 250px;
+    height: 280px;
     margin-left: 1000px
     
     
@@ -29,7 +29,7 @@ margin-left: 722px;
 
 h1, #logo {
 background-image: url("/BG/Galadriel.png");
-background-color: rgba(7, 15, 121, 0.199);
+background-color:rgba(42, 43, 38, 0.726);
 
 }
 
@@ -41,17 +41,20 @@ background-color: rgba(7, 15, 121, 0.199);
 
 
 .card-header {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQl2YftRy2P_pH2dyDdDW5JngRYD4igyZQrj2tI7xdbPC617ABL&usqp=CAU");}
+    background-image: url("https://images.unsplash.com/photo-1441861187324-6970a2587e34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+    background-position: center;
+    background-size: 420px;
+    }
 
 .card-body{
-    background-color: #1A1E21;
+    background-color: #2E302D;
     /* box-shadow: 0 4px 8px 0 rgba(48, 41, 41, 0.2); */
   
     
 }
 
 .list-group-item {
-    background-color: #867668fd;
+    background-color: rgba(46, 48, 45, 0.801);
     font-weight: bolder;
     font-size: 26.2px;
     font-family: 'Josefin Sans', sans-serif;
@@ -74,20 +77,16 @@ h2.card-title {
 }
 
 a {
-    color: rgb(6, 219, 226);
+    color: #0f9fa1;
 }
 
 a:hover {
-    color: #ECCA5E;
+    color: rgb(245, 153, 161);
     transition-duration: 0.65s;
     transform: scale(1.2);
 }
 
-a:active {
-    background-color: #669C99;
-    box-shadow: 0 5px rgb(1, 44, 78);
-    transform: translateY(10px);
-  }
+
 
 
 
